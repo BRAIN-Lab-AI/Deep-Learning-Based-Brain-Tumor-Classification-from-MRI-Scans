@@ -8,7 +8,9 @@
 
 ## Introduction
 Cancer is the abnormal growth of cells in any part of the body. According to the World Health Organization, it is considered one of the main causes of death worldwide. One of the most common and aggressive types is brain tumors. 
+
 Brain tumors are classified into gliomas, meningiomas, and pituitary tumors based on the size, shape, and location of the mass in the brain. The early detection of brain tumors plays an important role in treatment planning. As the manual detection and classification of brain tumors can be time-consuming and error-prone, the process needs to be automated.
+
 Medical imaging via magnetic resonance imaging (MRI), which provides detailed information about parts of the human body, such as the internal structures and tissues, plays a crucial role in detecting and classifying brain tumors.
 
 
