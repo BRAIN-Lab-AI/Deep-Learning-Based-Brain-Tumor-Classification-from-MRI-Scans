@@ -2,21 +2,46 @@
 
 ## Project Metadata
 ### Authors
-- **Team:** Name1, Namw2
+- **Team:** Asrar Almogbil
 - **Supervisor Name:** Dr. Muzammil Behzad
-- **Affiliations:** SABIC, ARAMCO and KFUPM (write your institution name, and/or KFUPM)
+- **Affiliations:**( IAU, KFUPM)
 
 ## Introduction
-Write 1-2 technical paragraphs (feel free to add images if you would like).
+Cancer is the abnormal growth of cells in any part of the body. According to the World Health Organization, it is considered one of the main causes of death worldwide. One of the most common and aggressive types is brain tumors. 
+Brain tumors are classified into gliomas, meningiomas, and pituitary tumors based on the size, shape, and location of the mass in the brain. The early detection of brain tumors plays an important role in treatment planning. As the manual detection and classification of brain tumors can be time-consuming and error-prone, the process needs to be automated.
+Medical imaging via magnetic resonance imaging (MRI), which provides detailed information about parts of the human body, such as the internal structures and tissues, plays a crucial role in detecting and classifying brain tumors.
+
 
 ## Problem Statement
-Write 1-2 technical paragraphs (feel free to add images if you would like).
+The accurate classification of brain tumors is critical for reducing diagnostic errors and treatment planning. A robust system with a solid baseline was achieved through pretraining fine-tuning EfficientNet model that  is used to classify brain tumors via MRI (Zulfiqar et al., 2023). Although the EfficientNet model has shown robust accuracy in classifying brain tumor types, it focuses on local feature extraction and does not capture the global relationships between tumors, which can lead to failures in the classification of complex cases. Applying transformer-based architecture would be computationally expensive and require a large data set, which might not be available, particularly in the medical imaging domain. Accordingly, in this paper, a transformer-enhanced EfficientNet model is proposed. The aim is to investigate the effects of extending EfficientNet with a transformer layer to combine (1) the system’s robust local feature extraction with (2) learning about important regions and global reasoning. 
 
 ## Application Area and Project Domain
-Write 1-2 technical paragraphs (feel free to add images if you would like).
+The area of the proposed application is medical imaging to automate the classification of brain tumor types into gliomas, meningiomas, and pituitary tumors. The project domain is a deep learning framework to investigate the effects of extending EfficientNet with a transformer layer to capture rich feature maps.
 
 ## What is the paper trying to do, and what are you planning to do?
-Write 1-2 technical paragraphs (feel free to add images if you would like).
+Zulfiqar et al. (2023) proposed a robust system that classified brain tumors into gliomas, meningiomas, and pituitary using transfer learning of pretrained fine-tuned EfficientNet models. The EfficientNet model was selected because it is considered lightweight and computationally inexpensive. Five EfficientNet models (i.e., EfficientNet B0–B4) were trained to classify tumors via MRI using the Figshare brain tumor dataset. To modify the architecture of the EfficientNet model, the pretrained ImageNet weights were loaded to the base model, then three top layers—Global Average Pooling (GAP), Dropout, and a fully connected layer—were added, as shown in Figure 1. To train the model, different hyperparameters were explicitly fine-tuned. 
+ <img width="940" height="192" alt="image" src="https://github.com/user-attachments/assets/e9026d35-0c16-4d9c-9263-4d274cebc5c8" />
+
+Figure 1(Zulfiqar et al., 2023)
+Figure 2 shows the pipeline of the proposed methodology, in which several preprocessing steps were applied to the data in the training set. Then, transfer learning of pretrained fine tuning EfficentNet models has been applied.
+<img width="877" height="413" alt="image" src="https://github.com/user-attachments/assets/dfccc541-a497-476d-b9a4-7962bb32af40" />
+
+ 
+Figure 2 (Zulfiqar et al., 2023)
+
+The performance of these models (i.e., EfficientNet B0–B4)  was tested nder the same set experiments. The EfficientNet B2 model outperformed the other models, as it achieved 98.70% and 91.35 %accuracy on the Figshare brain tumor and Kaggle MRI datasets, respectively. The researchers applied Grad-CAM to the results obtained from EfficientNet B2 for explainability. 
+
+The EfficientNet model showed robust accuracy in classifying brain tumors. However, convolution neural network (CNN) -based models focus on local features, which can result in the failure to classify complex and confusing scenarios. Accordingly, by combining the power of CNN-based architecture to capture local features and transformer-based architectures to capture global features, I propose extending EfficientNet with transform layers and to investigate the effects. In addition, a variation of cross-entropy loss function, which is label smoothing loss, will be tested. 
+
+
+
+
+
+
+
+
+Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of brain tumor types from MR images using EfficientNets. Biomedical Signal Processing and Control, 84, p.104777.
+
 
 
 # THE FOLLOWING IS SUPPOSED TO BE DONE LATER
