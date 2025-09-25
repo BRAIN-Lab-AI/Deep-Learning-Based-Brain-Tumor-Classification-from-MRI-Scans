@@ -26,12 +26,14 @@ The area of the proposed application is medical imaging to automate the classifi
 Zulfiqar et al. (2023) proposed a robust system that classified brain tumors into gliomas, meningiomas, and pituitary using transfer learning of pretrained fine-tuned EfficientNet models. The EfficientNet model was selected because it is considered lightweight and computationally inexpensive. Five EfficientNet models (i.e., EfficientNet B0–B4) were trained to classify tumors via MRI using the Figshare brain tumor dataset. To modify the architecture of the EfficientNet model, the pretrained ImageNet weights were loaded to the base model, then three top layers—Global Average Pooling (GAP), Dropout, and a fully connected layer—were added, as shown in Figure 1. To train the model, different hyperparameters were explicitly fine-tuned. 
  <img width="940" height="192" alt="image" src="https://github.com/user-attachments/assets/e9026d35-0c16-4d9c-9263-4d274cebc5c8" />
 
-Figure 1(Zulfiqar et al., 2023)
+                                           Figure 1(Zulfiqar et al., 2023)
+
+
 Figure 2 shows the pipeline of the proposed methodology, in which several preprocessing steps were applied to the data in the training set. Then, transfer learning of pretrained fine tuning EfficentNet models has been applied.
 <img width="877" height="413" alt="image" src="https://github.com/user-attachments/assets/dfccc541-a497-476d-b9a4-7962bb32af40" />
 
  
-Figure 2 (Zulfiqar et al., 2023)
+                                           Figure 2 (Zulfiqar et al., 2023)
 
 The performance of these models (i.e., EfficientNet B0–B4)  was tested nder the same set experiments. The EfficientNet B2 model outperformed the other models, as it achieved 98.70% and 91.35 %accuracy on the Figshare brain tumor and Kaggle MRI datasets, respectively. The researchers applied Grad-CAM to the results obtained from EfficientNet B2 for explainability. 
 
