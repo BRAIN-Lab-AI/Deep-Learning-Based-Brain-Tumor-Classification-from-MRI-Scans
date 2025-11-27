@@ -57,7 +57,7 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 - **Report:** [Project Report](/Report.pdf)
 
 ### Reference Paper
-- (https://www.sciencedirect.com/science/article/abs/pii/S1746809423002100)
+- (https://www.sciencedirect.com/science/article/abs/pii/S1746809423002100) https://github.com/FatimaZulfiqar/multi-class-brain-tumor-classification/blob/main/README.md
 ### Reference Dataset
 - (https://www.kaggle.com/datasets/tombackert/brain-tumor-mri-data)
 
