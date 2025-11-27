@@ -57,8 +57,7 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 - **Report:** [Project Report](/report.pdf)
 
 ### Reference Paper
-- [High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752)
-
+- (https://www.sciencedirect.com/science/article/abs/pii/S1746809423002100)
 ### Reference Dataset
 - [[LAION-5B Dataset](https://laion.ai/blog/laion-5b/)](https://www.kaggle.com/datasets/tombackert/brain-tumor-mri-data)
 
