@@ -66,44 +66,45 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 ## Project Technicalities
 
 ### Terminologies
-- **Diffusion Model:** A generative model that progressively transforms random noise into coherent data.
-- **Latent Space:** A compressed, abstract representation of data where complex features are captured.
-- **UNet Architecture:** A neural network with an encoder-decoder structure featuring skip connections for better feature preservation.
-- **Text Encoder:** A model that converts text into numerical embeddings for downstream tasks.
-- **Perceptual Loss:** A loss function that measures high-level differences between images, emphasizing perceptual similarity.
-- **Tokenization:** The process of breaking down text into smaller units (tokens) for processing.
-- **Noise Vector:** A randomly generated vector used to initialize the diffusion process in generative models.
-- **Decoder:** A network component that transforms latent representations back into image space.
-- **Iterative Refinement:** The process of gradually improving the quality of generated data through multiple steps.
-- **Conditional Generation:** The process where outputs are generated based on auxiliary inputs, such as textual descriptions.
+-**EfficientNet**: A CNN architecture optimized for parameter efficiency and high performance, used as the backbone for feature extraction.
+-**Transformer Encoder**: An attention-based module that captures global dependencies across the image by learning relationships between tokens.
+-**Positional Embedding**: A method for encoding spatial location information, ensuring that the transformer is aware of each token’s position in the original image.
+-**Patch Tokenization**: reshape feature maps into sequences (tokens), enabling sequential processing by the transformer.
+-**1×1 Convolution**: a reducing dimensionality layer that compresses deep feature channels into a smaller embedding size before feeding into the transformer.
+-**Label Smoothing**: A regularization technique that softens target labels to prevent overconfidence and reduce overfitting.
+-**CBAM (Convolutional Block Attention Module)**: An attention block that enhances feature discrimination by applying channel attention followed by spatial attention.
+-**Thresholding**: An image processing method that transforms  a grayscale image into a black and white  image by setting pixel values above a chosen threshold to white and below it to black.
+-**Erosion**: A morphological operation that shrinks white regions in a binary image to remove noise and small unwanted artifacts.
+-**Dilation**: A morphological operation that expands or thickens white regions in a binary image, useful for closing gaps and strengthening detected regions.
+-**Macro F1 Score**: A performance metric that computes the F1-score for each class and averages them, giving equal importance to all classes regardless of frequency.
 
 ### Problem Statements
-- **Problem 1:** Achieving high-resolution and detailed images using conventional diffusion models remains challenging.
-- **Problem 2:** Existing models suffer from slow inference times during the image generation process.
-- **Problem 3:** There is limited capability in performing style transfer and generating diverse artistic variations.
+- **Problem 1:** CNN architectures have a limited ability to capture global contextual information within MRI scans. CNN architectures focus solely on local features and may overlook long-range spatial relationships within the brain.
+- **Problem 2:** Difficulty in distinguishing tumors with overlapping visual characteristics. For example, Glioma and meningioma often share similar intensity patterns and shapes on MRI, leading to confusion for models.
+- **Problem 3:** Uncertainty regarding the effect of attention and regularization techniques on model performance. Techniques such as label smoothing and attention modules (e.g., CBAM) can either improve or degrade performance, and their specific impact in the context of transformer-enhanced EfficientNet architectures remains unclear.
 
 ### Loopholes or Research Areas
-- **Evaluation Metrics:** Lack of robust metrics to effectively assess the quality of generated images.
-- **Output Consistency:** Inconsistencies in output quality when scaling the model to higher resolutions.
-- **Computational Resources:** Training requires significant GPU compute resources, which may not be readily accessible.
+-Dataset Dependency: The model was trained and tested on a specific dataset of  MRI scans. Performance may vary if real clinical MRI data is used.
+-Limited Exploration of Model Variants: The EfficientNet model and the hybrid EfficientNet model with transformer have been tested. This leaves room for other studies to explore transformer types, varying numbers of transformer layers, alternative backbone models, and additional attention mechanisms.
+-The current system only classifies the tumor type but does not perform tumor segmentation or localization within the MRI.
 
 ### Problem vs. Ideation: Proposed 3 Ideas to Solve the Problems
-1. **Optimized Architecture:** Redesign the model architecture to improve efficiency and balance image quality with faster inference.
-2. **Advanced Loss Functions:** Integrate novel loss functions (e.g., perceptual loss) to better capture artistic nuances and structural details.
-3. **Enhanced Data Augmentation:** Implement sophisticated data augmentation strategies to improve the model’s robustness and reduce overfitting.
+1. Introduce a transformer-based attention head after EfficientNet to enable global context learning and relational reasoning across spatial regions. To enhance the ability to differentiate similarly appearing tumor types, provide positional awareness through embeddings, and capture long-range dependencies.
+2.Reshape feature maps into token sequences and apply positional embeddings to allow the model to understand where features originate in the brain, improve  tumor boundary interpretation, and enhance classification for ambiguous cases.
+3.Systematically evaluate transformer vs. no-transformer, label smoothing vs. no label smoothing, and CBAM vs. no CBAM to provide evidence-based architectural design, avoid unnecessary components, and select optimal model configuration.
 
 ### Proposed Solution: Code-Based Implementation
-This repository provides an implementation of the enhanced stable diffusion model using PyTorch. The solution includes:
-
-- **Modified UNet Architecture:** Incorporates residual connections and efficient convolutional blocks.
-- **Novel Loss Functions:** Combines Mean Squared Error (MSE) with perceptual loss to enhance feature learning.
-- **Optimized Training Loop:** Reduces computational overhead while maintaining performance.
-
+-**Hybrid CNN–Transformer Architecture**: EfficientNet is used as the base feature extractor, followed by a 1×1 convolution, a reshape layer, and a transformer encoder with positional embeddings to capture global contextual information from MRI images.
+-**Standard Categorical Cross-Entropy Loss**: Used as the main loss function for the classification task, with additional experiments including label smoothing to study its regularization effect.
+-**Optimized Training Procedure**: The model is trained with the Adam optimizer, an appropriate batch size, and a learning rate scheduler to ensure steady learning. Preprocessing has been applied, such as cropping, noise removal, and shuffling. Training data is augmented to have an adequate number of samples. 
 ### Key Components
-- **`model.py`**: Contains the modified UNet architecture and other model components.
-- **`train.py`**: Script to handle the training process with configurable parameters.
-- **`utils.py`**: Utility functions for data processing, augmentation, and metric evaluations.
-- **`inference.py`**: Script for generating images using the trained model.
+- **`Split_folders.ipynb`**: Handles dataset separation into training and testing.
+-**`Crop_Brain_Contours.ipynb`**:Performs brain region extraction.
+-**`Data_Augmentation.ipynb`**:Applies augmentation techniquesto increase dataset size and improve generalization.
+-**`Enhancedhybridmodel.ipynb`**:Implements the proposed EfficientNet + Transformer hybrid architecture for tumor classification.
+-**`ExpermentLabelSmthing.ipynb`**:Tests the effect of applying label smoothing to reduce overconfidence and study its impact on performance metrics.
+-**`ExpermentCBAMLayer.ipynb`**:Incorporates the CBAM attention module to examine whether it improves classification accuracy
+
 
 ## Model Workflow
 The workflow of the Enhanced Stable Diffusion model is designed to translate textual descriptions into high-quality artistic images through a multi-step diffusion process:
