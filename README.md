@@ -35,7 +35,7 @@ Figure 2 shows the pipeline of the proposed methodology, in which several prepro
  
                                            Figure 2 (Zulfiqar et al., 2023)
 
-The performance of these models (i.e., EfficientNet B0–B4)  was tested nder the same set experiments. The EfficientNet B2 model outperformed the other models, as it achieved 98.70% and 91.35 %accuracy on the Figshare brain tumor and Kaggle MRI datasets, respectively. The researchers applied Grad-CAM to the results obtained from EfficientNet B2 for explainability. 
+The performance of these models (i.e., EfficientNet B0–B4)  was tested nder the same set experiments. The EfficientNet B2 model outperformed the other models, as it achieved 98.70% and 91.35 %accuracy on the Figshare brain tumor and Kaggle MRI datasets, respectively. 
 
 The EfficientNet model showed robust accuracy in classifying brain tumors. However, convolution neural network (CNN) -based models focus on local features, which can result in the failure to classify complex and confusing scenarios. Accordingly, by combining the power of CNN-based architecture to capture local features and transformer-based architectures to capture global features, I propose extending EfficientNet with transform layers and to investigate the effects. In addition, a variation of cross-entropy loss function, which is label smoothing loss, will be tested. 
 
