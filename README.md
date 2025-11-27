@@ -67,15 +67,25 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 
 ### Terminologies
 -**EfficientNet**: A CNN architecture optimized for parameter efficiency and high performance, used as the backbone for feature extraction.
+
 -**Transformer Encoder**: An attention-based module that captures global dependencies across the image by learning relationships between tokens.
+
 -**Positional Embedding**: A method for encoding spatial location information, ensuring that the transformer is aware of each token’s position in the original image.
+
 -**Patch Tokenization**: reshape feature maps into sequences (tokens), enabling sequential processing by the transformer.
+
 -**1×1 Convolution**: a reducing dimensionality layer that compresses deep feature channels into a smaller embedding size before feeding into the transformer.
+
 -**Label Smoothing**: A regularization technique that softens target labels to prevent overconfidence and reduce overfitting.
+
 -**CBAM (Convolutional Block Attention Module)**: An attention block that enhances feature discrimination by applying channel attention followed by spatial attention.
+
 -**Thresholding**: An image processing method that transforms  a grayscale image into a black and white  image by setting pixel values above a chosen threshold to white and below it to black.
+
 -**Erosion**: A morphological operation that shrinks white regions in a binary image to remove noise and small unwanted artifacts.
+
 -**Dilation**: A morphological operation that expands or thickens white regions in a binary image, useful for closing gaps and strengthening detected regions.
+
 -**Macro F1 Score**: A performance metric that computes the F1-score for each class and averages them, giving equal importance to all classes regardless of frequency.
 
 ### Problem Statements
