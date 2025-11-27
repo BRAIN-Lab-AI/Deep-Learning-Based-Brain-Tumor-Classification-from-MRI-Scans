@@ -107,50 +107,32 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 
 
 ## Model Workflow
-The workflow of the Enhanced Stable Diffusion model is designed to translate textual descriptions into high-quality artistic images through a multi-step diffusion process:
+The workflow of the proposed EfficientNet–Transformer classification model is designed as follows:
 
 1. **Input:**
-   - **Text Prompt:** The model takes a text prompt (e.g., "A surreal landscape with mountains and rivers") as the primary input.
-   - **Tokenization:** The text prompt is tokenized and processed through a text encoder (such as a CLIP model) to obtain meaningful embeddings.
-   - **Latent Noise:** A random latent noise vector is generated to initialize the diffusion process, which is then conditioned on the text embeddings.
+      Brain MRI images are passed to the model. These images have been resized to match the model's required size. Preprocessing has been applied, such as cropping, noise removal, and shuffling. Training data is augmented to have an adequate number of samples.   
 
-2. **Diffusion Process:**
-   - **Iterative Refinement:** The conditioned latent vector is fed into a modified UNet architecture. The model iteratively refines this vector by reversing a diffusion process, gradually reducing noise while preserving the text-conditioned features.
-   - **Intermediate States:** At each step, intermediate latent representations are produced that increasingly capture the structure and details dictated by the text prompt.
+2. **Feature extraction :**
+     MRI images are  fed to the EfficientNet model to extract low and high-level local features. This results in a feature map of the MRI.   
 
-3. **Output:**
-   - **Decoding:** The final refined latent representation is passed through a decoder (often part of a Variational Autoencoder setup) to generate the final image.
-   - **Generated Image:** The output is a synthesized image that visually represents the input text prompt, complete with artistic style and detail.
+3. **Transformer encoder satges:**
+    -**1×1 Conv with 256 filters:** reduce the number of channels.  
+    -**reshape layer:** Feature maps are reshaped into a sequence of tokens representing spatial patches of the MRI.  
+    -**Positional Embedding:** Each token is assigned positional information so the transformer knows the location of each patch in the input.  
+    -**Attention Processing:** The transformer encoder analyzes relationships between distant regions in the image, enabling global pattern recognition and contextual tumor understanding.  
 
+4. **Classification Output:**
+    -**Global Average Pooling:** to reduce the dimensionality.  
+    -**Softmax Output:** Produces probabilities for the three classes, which are: Glioma, Meningioma, and Pituitary.  
+    -**Final Prediction:** The model outputs the tumor class with the highest probability.  
 ## How to Run the Code
-
-1. **Clone the Repository:**
-    ```bash
-    git clone https://github.com/yourusername/enhanced-stable-diffusion.git
-    cd enhanced-stable-diffusion
-    ```
-
-2. **Set Up the Environment:**
-    Create a virtual environment and install the required dependencies.
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate  # On Windows use: venv\Scripts\activate
-    pip install -r requirements.txt
-    ```
-
-3. **Train the Model:**
-    Configure the training parameters in the provided configuration file and run:
-    ```bash
-    python train.py --config configs/train_config.yaml
-    ```
-
-4. **Generate Images:**
-    Once training is complete, use the inference script to generate images.
-    ```bash
-    python inference.py --checkpoint path/to/checkpoint.pt --input "A surreal landscape with mountains and rivers"
-    ```
+1.	Crop brain contour
+2.	Use https://github.com/jfilter/split-folders to split dataset into train and test of 80:20
+3.	Apply Data augmentation on dataset in train set only
+4.	Train models and evaluate.
 
 ## Acknowledgments
-- **Open-Source Communities:** Thanks to the contributors of PyTorch, Hugging Face, and other libraries for their amazing work.
-- **Individuals:** Special thanks to bla, bla, bla for the amazing team effort, invaluable guidance and support throughout this project.
-- **Resource Providers:** Gratitude to ABC-organization for providing the computational resources necessary for this project.
+-Special thanks to Dr. Dr. Muzammil Behzad for its continuous guidance, insightful discussions, and encouragement throughout the development of this work.
+-The MRI dataset used in this research was  available on Kaggle, a platform whose contributions to open scientific data are invaluable.
+-I acknowledge the developers and contributors of TensorFlow, Keras, NumPy, Matplotlib, and other open-source tools that enabled the implementation and testing of the model.
+
