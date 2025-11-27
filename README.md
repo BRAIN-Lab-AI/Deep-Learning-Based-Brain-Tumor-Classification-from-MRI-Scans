@@ -93,12 +93,16 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 
 ### Loopholes or Research Areas
 -Dataset Dependency: The model was trained and tested on a specific dataset of  MRI scans. Performance may vary if real clinical MRI data is used.
+
 -Limited Exploration of Model Variants: The EfficientNet model and the hybrid EfficientNet model with transformer have been tested. This leaves room for other studies to explore transformer types, varying numbers of transformer layers, alternative backbone models, and additional attention mechanisms.
+
 -The current system only classifies the tumor type but does not perform tumor segmentation or localization within the MRI.
 
 ### Problem vs. Ideation: Proposed 3 Ideas to Solve the Problems
 1. Introduce a transformer-based attention head after EfficientNet to enable global context learning and relational reasoning across spatial regions. To enhance the ability to differentiate similarly appearing tumor types, provide positional awareness through embeddings, and capture long-range dependencies.
+   
 2.Reshape feature maps into token sequences and apply positional embeddings to allow the model to understand where features originate in the brain, improve  tumor boundary interpretation, and enhance classification for ambiguous cases.
+
 3.Systematically evaluate transformer vs. no-transformer, label smoothing vs. no label smoothing, and CBAM vs. no CBAM to provide evidence-based architectural design, avoid unnecessary components, and select optimal model configuration.
 
 ### Proposed Solution: Code-Based Implementation
