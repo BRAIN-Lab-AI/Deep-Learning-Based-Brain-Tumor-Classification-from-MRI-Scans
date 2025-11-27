@@ -59,7 +59,7 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 ### Reference Paper
 - (https://www.sciencedirect.com/science/article/abs/pii/S1746809423002100)
 ### Reference Dataset
-- [[LAION-5B Dataset](https://laion.ai/blog/laion-5b/)](https://www.kaggle.com/datasets/tombackert/brain-tumor-mri-data)
+- (https://www.kaggle.com/datasets/tombackert/brain-tumor-mri-data)
 
 
 ## Project Technicalities
