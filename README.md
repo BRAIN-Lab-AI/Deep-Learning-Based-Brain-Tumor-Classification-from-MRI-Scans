@@ -132,7 +132,7 @@ The workflow of the proposed EfficientNet–Transformer classification model is 
 4.	Train models and evaluate.
 
 ## Acknowledgments
--Special thanks to Dr. Dr. Muzammil Behzad for its continuous guidance, insightful discussions, and encouragement throughout the development of this work.
--The MRI dataset used in this research was  available on Kaggle, a platform whose contributions to open scientific data are invaluable.
--I acknowledge the developers and contributors of TensorFlow, Keras, NumPy, Matplotlib, and other open-source tools that enabled the implementation and testing of the model.
+-Special thanks to Dr. Dr. Muzammil Behzad for its continuous guidance, insightful discussions, and encouragement throughout the development of this work.  
+-The MRI dataset used in this research was  available on Kaggle, a platform whose contributions to open scientific data are invaluable.  
+-I acknowledge the developers and contributors of TensorFlow, Keras, NumPy, Matplotlib, and other open-source tools that enabled the implementation and testing of the model.  
 
