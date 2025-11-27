@@ -67,9 +67,7 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 
 ### Terminologies
 -**EfficientNet**: A CNN architecture optimized for parameter efficiency and high performance, used as the backbone for feature extraction.
-
 -**Transformer Encoder**: An attention-based module that captures global dependencies across the image by learning relationships between tokens.
-
 -**Positional Embedding**: A method for encoding spatial location information, ensuring that the transformer is aware of each token’s position in the original image.
 
 -**Patch Tokenization**: reshape feature maps into sequences (tokens), enabling sequential processing by the transformer.
