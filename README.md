@@ -67,7 +67,9 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 
 ### Terminologies
 -**EfficientNet**: A CNN architecture optimized for parameter efficiency and high performance, used as the backbone for feature extraction.
+
 -**Transformer Encoder**: An attention-based module that captures global dependencies across the image by learning relationships between tokens.
+
 -**Positional Embedding**: A method for encoding spatial location information, ensuring that the transformer is aware of each token’s position in the original image.
 
 -**Patch Tokenization**: reshape feature maps into sequences (tokens), enabling sequential processing by the transformer.
@@ -92,21 +94,17 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 - **Problem 3:** Uncertainty regarding the effect of attention and regularization techniques on model performance. Techniques such as label smoothing and attention modules (e.g., CBAM) can either improve or degrade performance, and their specific impact in the context of transformer-enhanced EfficientNet architectures remains unclear.
 
 ### Loopholes or Research Areas
--Dataset Dependency: The model was trained and tested on a specific dataset of  MRI scans. Performance may vary if real clinical MRI data is used.
-
--Limited Exploration of Model Variants: The EfficientNet model and the hybrid EfficientNet model with transformer have been tested. This leaves room for other studies to explore transformer types, varying numbers of transformer layers, alternative backbone models, and additional attention mechanisms.
-
+-Dataset Dependency: The model was trained and tested on a specific dataset of  MRI scans. Performance may vary if real clinical MRI data is used.  
+-Limited Exploration of Model Variants: The EfficientNet model and the hybrid EfficientNet model with transformer have been tested. This leaves room for other studies to explore transformer types, varying numbers of transformer layers, alternative backbone models, and additional attention mechanisms.  
 -The current system only classifies the tumor type but does not perform tumor segmentation or localization within the MRI.
 
 ### Problem vs. Ideation: Proposed 3 Ideas to Solve the Problems
-1. Introduce a transformer-based attention head after EfficientNet to enable global context learning and relational reasoning across spatial regions. To enhance the ability to differentiate similarly appearing tumor types, provide positional awareness through embeddings, and capture long-range dependencies.
-   
-2.Reshape feature maps into token sequences and apply positional embeddings to allow the model to understand where features originate in the brain, improve  tumor boundary interpretation, and enhance classification for ambiguous cases.
-
+1. Introduce a transformer-based attention head after EfficientNet to enable global context learning and relational reasoning across spatial regions. To enhance the ability to differentiate similarly appearing tumor types, provide positional awareness through embeddings, and capture long-range dependencies.  
+2.Reshape feature maps into token sequences and apply positional embeddings to allow the model to understand where features originate in the brain, improve  tumor boundary interpretation, and enhance classification for ambiguous cases.  
 3.Systematically evaluate transformer vs. no-transformer, label smoothing vs. no label smoothing, and CBAM vs. no CBAM to provide evidence-based architectural design, avoid unnecessary components, and select optimal model configuration.
 
 ### Proposed Solution: Code-Based Implementation
--**Hybrid CNN–Transformer Architecture**: EfficientNet is used as the base feature extractor, followed by a 1×1 convolution, a reshape layer, and a transformer encoder with positional embeddings to capture global contextual information from MRI images.
+-**Hybrid CNN–Transformer Architecture**: EfficientNet is used as the base feature extractor, followed by a 1×1 convolution, a reshape layer, and a transformer encoder with positional embeddings to capture global contextual information from MRI images. 
 -**Standard Categorical Cross-Entropy Loss**: Used as the main loss function for the classification task, with additional experiments including label smoothing to study its regularization effect.
 -**Optimized Training Procedure**: The model is trained with the Adam optimizer, an appropriate batch size, and a learning rate scheduler to ensure steady learning. Preprocessing has been applied, such as cropping, noise removal, and shuffling. Training data is augmented to have an adequate number of samples. 
 ### Key Components
