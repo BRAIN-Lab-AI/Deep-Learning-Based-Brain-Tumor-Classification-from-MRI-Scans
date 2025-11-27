@@ -1,4 +1,4 @@
-# Deep-Learning-Based-Brain-Tumor-Classification-from-MRI-Scans
+# Transformer-Enhanced EfficientNet Architecture for Multi-Class Brain Tumor Classification
 
 ## Project Metadata
 ### Authors
