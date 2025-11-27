@@ -94,16 +94,16 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 3.  Systematically evaluate transformer vs. no-transformer, label smoothing vs. no label smoothing, and CBAM vs. no CBAM to provide evidence-based architectural design, avoid unnecessary components, and select optimal model configuration. 
 
 ### Proposed Solution: Code-Based Implementation
--**Hybrid CNN–Transformer Architecture**: EfficientNet is used as the base feature extractor, followed by a 1×1 convolution, a reshape layer, and a transformer encoder with positional embeddings to capture global contextual information from MRI images. 
+-**Hybrid CNN–Transformer Architecture**: EfficientNet is used as the base feature extractor, followed by a 1×1 convolution, a reshape layer, and a transformer encoder with positional embeddings to capture global contextual information from MRI images.  
 -**Standard Categorical Cross-Entropy Loss**: Used as the main loss function for the classification task, with additional experiments including label smoothing to study its regularization effect.  
 -**Optimized Training Procedure**: The model is trained with the Adam optimizer, an appropriate batch size, and a learning rate scheduler to ensure steady learning. Preprocessing has been applied, such as cropping, noise removal, and shuffling. Training data is augmented to have an adequate number of samples.   
 ### Key Components
 - **`Split_folders.ipynb`**: Handles dataset separation into training and testing.  
--**`Crop_Brain_Contours.ipynb`**:Performs brain region extraction.  
--**`Data_Augmentation.ipynb`**:Applies augmentation techniquesto increase dataset size and improve generalization.  
--**`Enhancedhybridmodel.ipynb`**:Implements the proposed EfficientNet + Transformer hybrid architecture for tumor classification.  
--**`ExpermentLabelSmthing.ipynb`**:Tests the effect of applying label smoothing to reduce overconfidence and study its impact on performance metrics.  
--**`ExpermentCBAMLayer.ipynb`**:Incorporates the CBAM attention module to examine whether it improves classification accuracy.  
+- **`Crop_Brain_Contours.ipynb`**:Performs brain region extraction.  
+- **`Data_Augmentation.ipynb`**:Applies augmentation techniquesto increase dataset size and improve generalization.  
+- **`Enhancedhybridmodel.ipynb`**:Implements the proposed EfficientNet + Transformer hybrid architecture for tumor classification.  
+- **`ExpermentLabelSmthing.ipynb`**:Tests the effect of applying label smoothing to reduce overconfidence and study its impact on performance metrics.  
+- **`ExpermentCBAMLayer.ipynb`**:Incorporates the CBAM attention module to examine whether it improves classification accuracy.  
 
 
 ## Model Workflow
