@@ -54,7 +54,7 @@ Zulfiqar, F., Bajwa, U.I. and Mehmood, Y., 2023. Multi-class classification of b
 
 ### Project Documents
 - **Presentation:** [Project Presentation](/Presentation.pptx)
-- **Report:** [Project Report](/report.pdf)
+- **Report:** [Project Report](/Report.pdf)
 
 ### Reference Paper
 - (https://www.sciencedirect.com/science/article/abs/pii/S1746809423002100)
